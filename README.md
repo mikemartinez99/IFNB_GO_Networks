@@ -8,7 +8,7 @@
 
 ## Overview
 
-This repository contains the code and environment for an analysis for my May 2026 blog post demonstrating how to build **pathway overlap networks** from single-cell RNA-seq differential expression data. The analysis uses the IFNB PBMC dataset (Kang et al. 2018, *Nature Biotechnology*) containing ~14,000 human peripheral blood mononuclear cells profiled by 10x Genomics scRNA-seq under two conditions: untreated control and interferon-beta (IFN-β) stimulation.
+This repository contains the code and environment for an analysis for my [May 2026 blog post](https://mikemartinez99.github.io/posts/Beyond-Dotplots-Pathway-Enrichment-Networks-in-Single-Cell/) demonstrating how to build **pathway overlap networks** from single-cell RNA-seq differential expression data. The analysis uses the IFNB PBMC dataset (Kang et al. 2018, *Nature Biotechnology*) containing ~14,000 human peripheral blood mononuclear cells profiled by 10x Genomics scRNA-seq under two conditions: untreated control and interferon-beta (IFN-β) stimulation.
 
 The core idea: rather than interpreting hundreds of GO terms from an over-representation analysis as a flat list, we construct a gene-sharing network where GO terms are nodes and edges connect terms with overlapping gene membership (Jaccard similarity). Leiden community detection then groups redundant, related terms into coherent biological modules that are easier to interpret.
 
