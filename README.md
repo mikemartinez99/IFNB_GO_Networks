@@ -8,11 +8,11 @@
 
 ## Overview
 
-This repository contains the code and environment for a blog post demonstrating how to build **pathway overlap networks** from single-cell RNA-seq differential expression data. The analysis uses the IFNB PBMC dataset (Kang et al. 2018, *Nature Biotechnology*) — ~14,000 human peripheral blood mononuclear cells profiled by 10x Genomics scRNA-seq under two conditions: untreated control and interferon-beta (IFN-β) stimulation.
+This repository contains the code and environment for an analysis for my May 2026 blog post demonstrating how to build **pathway overlap networks** from single-cell RNA-seq differential expression data. The analysis uses the IFNB PBMC dataset (Kang et al. 2018, *Nature Biotechnology*) containing ~14,000 human peripheral blood mononuclear cells profiled by 10x Genomics scRNA-seq under two conditions: untreated control and interferon-beta (IFN-β) stimulation.
 
 The core idea: rather than interpreting hundreds of GO terms from an over-representation analysis as a flat list, we construct a gene-sharing network where GO terms are nodes and edges connect terms with overlapping gene membership (Jaccard similarity). Leiden community detection then groups redundant, related terms into coherent biological modules that are easier to interpret.
 
-The full pipeline — differential expression, GO over-representation analysis, and network construction — is implemented using the [GDSCtools](https://github.com/Dartmouth-Data-Analytics-Core/GDSCtools) R package.
+The full pipeline — differential expression, GO over-representation analysis, and network construction — is implemented using the [GDSCtools](https://github.com/Dartmouth-Data-Analytics-Core/GDSCtools) R package which at the time of writing this blog is **preliminary** and under development.
 
 ---
 
@@ -25,12 +25,7 @@ MayBlog/
 ├── envs/
 │   ├── pixi.toml               # Conda environment specification
 │   └── pixi.lock               # Locked dependency versions
-├── outputs/
-│   └── Ctrl_v_Stim/
-│       ├── DEGs/               # Per-cell-type differential expression results
-│       ├── ORA/                # Per-cell-type GO over-representation results
-│       └── networks/           # Network CSVs and PNGs per cell type
-└── MayBlog.Rproj               # RStudio project file
+
 ```
 
 ---
