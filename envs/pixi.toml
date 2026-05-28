@@ -1,0 +1,56 @@
+[workspace]
+authors = ["Mike Martinez <mike.j.martinez99@gmail.com>"]
+channels = ["conda-forge", "bioconda"]
+name = "envs"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+#----- Run RStudio project
+rstudio = "open -n -a Rstudio /Users/mike/Desktop/MayBlog/MayBlog.Rproj"
+
+#----- Install github packages
+install-git-1 = """
+Rscript -e '
+devtools::install_github("https://github.com/satijalab/seurat-data")
+'
+"""
+
+install-git-2 = """
+Rscript -e '
+devtools::install_github("lepennec/ggwordcloud")
+devtools::install_github("https://github.com/Dartmouth-Data-Analytics-Core/GDSCtools")
+'
+"""
+
+fix-bioc-data = "PREFIX=$CONDA_PREFIX bash $CONDA_PREFIX/bin/.bioconductor-genomeinfodbdata-post-link.sh"
+
+[dependencies]
+r-base = ">=4.3"
+r-sessioninfo = "*"
+r-remotes = "*"
+r-devtools = "*"
+r-tidyverse = "*"
+r-dplyr = "*"
+r-tidyr = "*"
+r-readr = "*"
+r-stringr = "*"
+"r-data.table" = "*"
+r-pheatmap = "*"
+r-ggplot2 = "*"
+r-ggpubr = "*"
+r-ggrepel = "*"
+r-ggExtra = "*"
+r-gridtext = "*"
+r-igraph = "*"
+r-patchwork = "*"
+r-scales = "*"
+r-RColorBrewer = "*"
+r-ggh4x = "*"
+r-circlize = "*"
+r-Seurat = ">=5.0.0"
+bioconductor-clusterprofiler = "*"
+"bioconductor-org.hs.eg.db" = "*"
+
+
