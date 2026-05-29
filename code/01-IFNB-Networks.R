@@ -68,7 +68,7 @@ write_de_results(de_list, paste0(outputDir, "Ctrl_v_Stim/DEGs/"), type = "DE", s
 universe <- rownames(seurat)
 set.seed(1234)
 
-#----- Comparison 1 GO-ORA analysis
+#----- GO-ORA analysis
 go_list <- run_go_ora(de_list,
                       org_db = org.Hs.eg.db,
                       universe = universe,
@@ -79,7 +79,7 @@ write_de_results(go_list, paste0(outputDir, "Ctrl_v_Stim/ORA/"), type = "GO", sp
 # PATHWAY OVERLAP NETWORKS
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-#----- Comparison 1 networks: CD206 CAR vs Bleo
+#----- Network construction
 networks <- run_comparison_networks(
   go_list    = go_list,
   de_list    = de_list,
@@ -87,7 +87,7 @@ networks <- run_comparison_networks(
   base_outdir = outputDir
 )
 
-# Extract the GO results with clustering
+#----- Extract the GO results with clustering
 for (i in names(networks)) {
   x <- networks[[i]]$go_term_df
   cluster <- gsub("/", "_", i)
